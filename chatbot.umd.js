@@ -32397,10 +32397,10 @@
         });
       }
       /**
-      		    Same as `.add()`, but accepts an array of sync or async functions.
+              Same as `.add()`, but accepts an array of sync or async functions.
       
-      		    @returns A promise that resolves when all functions are resolved.
-      		    */
+              @returns A promise that resolves when all functions are resolved.
+              */
       async addAll(functions, options) {
         return Promise.all(functions.map(async (function_) => this.add(function_, options)));
       }
@@ -32428,10 +32428,10 @@
         this._queue = new this._queueClass();
       }
       /**
-      		    Can be called multiple times. Useful if you for example add additional items at a later time.
+              Can be called multiple times. Useful if you for example add additional items at a later time.
       
-      		    @returns A promise that settles when the queue becomes empty.
-      		    */
+              @returns A promise that settles when the queue becomes empty.
+              */
       async onEmpty() {
         if (this._queue.size === 0) {
           return;
@@ -32445,10 +32445,10 @@
         });
       }
       /**
-      		    The difference with `.onEmpty` is that `.onIdle` guarantees that all work from the queue has finished. `.onEmpty` merely signals that the queue is empty, but it could mean that some promises haven't completed yet.
+              The difference with `.onEmpty` is that `.onIdle` guarantees that all work from the queue has finished. `.onEmpty` merely signals that the queue is empty, but it could mean that some promises haven't completed yet.
       
-      		    @returns A promise that settles when the queue becomes empty, and all promises have completed; `queue.size === 0 && queue.pending === 0`.
-      		    */
+              @returns A promise that settles when the queue becomes empty, and all promises have completed; `queue.size === 0 && queue.pending === 0`.
+              */
       async onIdle() {
         if (this._pendingCount === 0 && this._queue.size === 0) {
           return;
@@ -32468,10 +32468,10 @@
         return this._queue.size;
       }
       /**
-      		    Size of the queue, filtered by the given options.
+              Size of the queue, filtered by the given options.
       
-      		    For example, this can be used to find the number of items remaining in the queue with a specific priority level.
-      		    */
+              For example, this can be used to find the number of items remaining in the queue with a specific priority level.
+              */
       sizeBy(options) {
         return this._queue.filter(options).length;
       }
@@ -37481,14 +37481,14 @@ Received: ${JSON.stringify(params, null, 2)}`), "MESSAGE_COERCION_FAILURE");
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-blue-500 p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-white text-lg font-semibold", children: "Aposto Chatbot" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 md:h-120 h-95 overflow-y-auto space-y-4", ref: messageContainer, children: [
           thread.messages.map((message, index) => {
-            var _a, _b, _c, _d, _e;
+            var _a, _b, _c;
             return /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "div",
               {
                 className: `flex items-start ${message.type === "human" ? "justify-end" : ""}`,
                 children: [
-                  message.type === "ai" && !((_a = message.additional_kwargs) == null ? void 0 : _a.is_link) && ((_b = message.additional_kwargs) == null ? void 0 : _b.complete) == true && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-200 text-gray-900 p-2 rounded-lg max-w-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { dangerouslySetInnerHTML: { __html: message.content } }) }),
-                  message.type === "ai" && ((_c = message.additional_kwargs) == null ? void 0 : _c.is_link) && ((_d = message.additional_kwargs) == null ? void 0 : _d.complete) == true && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  message.type === "ai" && !((_a = message.additional_kwargs) == null ? void 0 : _a.is_link) && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-200 text-gray-900 p-2 rounded-lg max-w-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { dangerouslySetInnerHTML: { __html: message.content } }) }),
+                  message.type === "ai" && ((_b = message.additional_kwargs) == null ? void 0 : _b.is_link) && /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "a",
                     {
                       target: "_blank",
@@ -37497,7 +37497,7 @@ Received: ${JSON.stringify(params, null, 2)}`), "MESSAGE_COERCION_FAILURE");
                       children: message.content
                     }
                   ),
-                  message.type === "human" && ((_e = message.additional_kwargs) == null ? void 0 : _e.display) != false && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-blue-500 text-white p-2 rounded-lg max-w-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: message.content }) })
+                  message.type === "human" && ((_c = message.additional_kwargs) == null ? void 0 : _c.display) != false && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-blue-500 text-white p-2 rounded-lg max-w-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: message.content }) })
                 ]
               },
               index
